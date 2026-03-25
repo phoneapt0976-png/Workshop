@@ -1,43 +1,78 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Workshop.MovieDetailsPage"
-             Title="Movie Details">
+             x:Class="MoviesMiniProject.Views.MovieDetailsPage"
+             Title="Movie Details"
+             BackgroundColor="#121212">
 
-	<ScrollView>
-		<VerticalStackLayout Padding="16" Spacing="12">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
 
-			<!-- Poster -->
-			<Image HeightRequest="300"
+            <!-- Poster -->
+            <Image x:Name="DetailPoster"
+                   HeightRequest="300"
                    HorizontalOptions="Fill"
                    Aspect="AspectFit"
                    BackgroundColor="Black"
-                   Source="{Binding Poster}"
-                   x:Name="DetailPoster">
-				<Image.GestureRecognizers>
-					<TapGestureRecognizer Tapped="OnDetailImageTapped" />
-				</Image.GestureRecognizers>
-			</Image>
+                   Source="{Binding Poster}">
 
-			<!-- Title -->
-			<Label Text="{Binding Title}"
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDetailImageTapped"/>
+                </Image.GestureRecognizers>
+
+            </Image>
+
+            <!-- Title -->
+            <Label Text="{Binding Title}"
                    FontAttributes="Bold"
-                   FontSize="24" />
+                   FontSize="26"
+                   TextColor="White"/>
 
-			<!-- Year + Genre -->
-			<HorizontalStackLayout Spacing="12">
-				<Label Text="{Binding Year}" />
-				<Label Text="·" />
-				<Label Text="{Binding Genre}" />
-			</HorizontalStackLayout>
+            <!-- Year + Genre -->
+            <HorizontalStackLayout Spacing="10">
 
-			<!-- Description -->
-			<Label Text="คำอธิบาย" FontAttributes="Bold" />
-			<Label Text="{Binding Description}"
+                <Label Text="{Binding Year}"
+                       TextColor="#BBBBBB"/>
+
+                <Label Text="·"
+                       TextColor="#BBBBBB"/>
+
+                <Label Text="{Binding Genre, StringFormat='🍿 {0}'}"
+                       TextColor="#BBBBBB"/>
+
+            </HorizontalStackLayout>
+
+            <!-- Rating -->
+            <Label Text="{Binding Rating, StringFormat='⭐ Rating: {0}/10'}"
+                   FontSize="16"
+                   TextColor="Gold"/>
+
+            <!-- Trailer -->
+            <Label Text="🎬 Trailer"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   TextColor="White"/>
+
+            <!-- FIX YOUTUBE -->
+            <WebView HeightRequest="220">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="{Binding TrailerUrl}" />
+                </WebView.Source>
+            </WebView>
+
+            <!-- Description -->
+            <Label Text="คำอธิบาย"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   TextColor="White"/>
+
+            <Label Text="{Binding Description}"
                    LineBreakMode="WordWrap"
-                   FontSize="14" />
+                   FontSize="14"
+                   TextColor="#DDDDDD"/>
 
-		</VerticalStackLayout>
-	</ScrollView>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

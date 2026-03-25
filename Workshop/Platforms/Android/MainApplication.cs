@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Workshop
+namespace MoviesMiniProject
 {
     [Application]
     public class MainApplication : MauiApplication

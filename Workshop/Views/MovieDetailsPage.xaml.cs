@@ -1,7 +1,8 @@
 using System;
-using Workshop.Models;
+using Microsoft.Maui.Controls;
+using MoviesMiniProject.Models;
 
-namespace Workshop
+namespace MoviesMiniProject.Views
 {
     public partial class MovieDetailsPage : ContentPage
     {

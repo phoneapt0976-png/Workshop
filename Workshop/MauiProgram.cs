@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Workshop
+namespace MoviesMiniProject
 {
     public static class MauiProgram
     {

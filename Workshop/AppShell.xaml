@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="Workshop.AppShell"
+    x:Class="MoviesMiniProject.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Workshop"
-    Title="Workshop">
+    xmlns:views="clr-namespace:MoviesMiniProject.Views"
+    Title="MoviesMiniProject">
 
     <ShellContent
         Title="Movies"
-        ContentTemplate="{DataTemplate local:MoviesPage}"
+        ContentTemplate="{DataTemplate views:MoviesPage}"
         Route="MoviesPage" />
 
 </Shell>

@@ -1,4 +1,4 @@
-﻿namespace Workshop
+﻿namespace MoviesMiniProject
 {
     public partial class MainPage : ContentPage
     {

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Workshop
+namespace MoviesMiniProject
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

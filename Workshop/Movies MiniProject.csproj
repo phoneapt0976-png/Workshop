@@ -85,6 +85,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\CategoryMoviesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\FullscreenImagePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -97,6 +100,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="NewFolder\" />
 	  <Folder Include="Resources\izetizer\r\drawable\" />
 	</ItemGroup>
 
@@ -111,6 +115,12 @@
 	  <MauiImage Include="Resources\Images\the_godfather.png" />
 	  <MauiImage Include="Resources\Images\the_matrix.png" />
 	  <MauiImage Include="Resources\Images\the_shawshank_redemption.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Views\CategoryMoviesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
 	</ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Workshop
+namespace MoviesMiniProject
 {
     public partial class App : Application
     {

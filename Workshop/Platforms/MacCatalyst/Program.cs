@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Workshop
+namespace MoviesMiniProject
 {
     public class Program
     {

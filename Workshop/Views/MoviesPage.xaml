@@ -1,52 +1,87 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Workshop.ViewModels"
-             x:Class="Workshop.MoviesPage"
-             Title="Movies">
 
-    <ContentPage.BindingContext>
-        <vm:MoviesViewModel />
-    </ContentPage.BindingContext>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MoviesMiniProject.Views.MoviesPage"
+    BackgroundColor="#121212">
 
-    <CollectionView x:Name="MoviesCollectionView"
-                  ItemsSource="{Binding Movies}"
-                  SelectionMode="Single"
-                  SelectionChanged="OnSelectionChanged">
+    <Grid RowDefinitions="Auto,Auto,*">
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Margin="8" Padding="8" HasShadow="True">
-                    <Grid ColumnDefinitions="100,*">
+        <!-- Search -->
+        <SearchBar Grid.Row="0"
+                   Placeholder="Search movie..."
+                   TextChanged="OnSearchTextChanged"
+                   Margin="10"
+                   BackgroundColor="#1E1E1E"
+                   TextColor="White"
+                   PlaceholderColor="Gray"/>
 
-                        <!-- แก้ตรงนี้ -->
-                        <Image Source="{Binding Poster}"
-                   WidthRequest="100"
-                   HeightRequest="150"
-                   Aspect="AspectFill" />
+        <!-- ปุ่มหมวดหมู่ -->
+        <HorizontalStackLayout Grid.Row="1"
+                               Spacing="10"
+                               Padding="10">
 
-                        <VerticalStackLayout Grid.Column="1"
-                                 Spacing="4"
-                                 Padding="8,0,0,0">
+            <Button Text="All" Clicked="AllClicked"/>
+            <Button Text="Drama" Clicked="DramaClicked"/>
+            <Button Text="Action" Clicked="ActionClicked"/>
+            <Button Text="Crime" Clicked="CrimeClicked"/>
+            <Button Text="SciFi" Clicked="SciFiClicked"/>
+            <Button Text="Thriller" Clicked="ThrillerClicked"/>
 
-                            <Label Text="{Binding Title}"
-                     FontAttributes="Bold"
-                     FontSize="16" />
+        </HorizontalStackLayout>
 
-                            <Label Text="{Binding Year}"
-                     FontSize="14" />
+        <!-- รายการหนัง -->
+        <CollectionView Grid.Row="2"
+                        x:Name="MoviesList"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
 
-                            <Label Text="{Binding Genre}"
-                     FontSize="12"
-                     TextColor="Gray" />
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
 
-                        </VerticalStackLayout>
+                    <Border Margin="12"
+                            BackgroundColor="#1E1E1E"
+                            Stroke="#333"
+                            StrokeShape="RoundRectangle 15">
 
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
+                        <Grid ColumnDefinitions="110,*">
 
-    </CollectionView>
+                            <!-- Poster -->
+                            <Image Source="{Binding Poster}"
+                                   WidthRequest="110"
+                                   HeightRequest="160"
+                                   Aspect="AspectFill"/>
+
+                            <!-- Info -->
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Spacing="6"
+                                                 Padding="12">
+
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       TextColor="White"/>
+
+                                <Label Text="{Binding Year}"
+                                       FontSize="14"
+                                       TextColor="#BBBBBB"/>
+
+                                <Label Text="{Binding Genre}"
+                                       FontSize="13"
+                                       TextColor="#9E9E9E"/>
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
 
 </ContentPage>

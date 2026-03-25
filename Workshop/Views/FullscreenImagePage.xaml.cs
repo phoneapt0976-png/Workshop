@@ -1,11 +1,11 @@
 using System;
 using Microsoft.Maui.Controls;
 
-namespace Workshop
+namespace MoviesMiniProject
 {
     public partial class FullscreenImagePage : ContentPage
     {
-        double startScale, currentScale = 1;
+        double startScale;
 
         public FullscreenImagePage(string poster)
         {
@@ -15,7 +15,11 @@ namespace Workshop
             {
                 if (poster.StartsWith("http", StringComparison.OrdinalIgnoreCase))
                 {
-                    FullImage.Source = new UriImageSource { Uri = new Uri(poster), CachingEnabled = true };
+                    FullImage.Source = new UriImageSource
+                    {
+                        Uri = new Uri(poster),
+                        CachingEnabled = true
+                    };
                 }
                 else
                 {
@@ -24,12 +28,12 @@ namespace Workshop
             }
         }
 
-        private async void OnImageTapped(object sender, EventArgs e)
+        private async void OnImageTapped(object? sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }
 
-        private void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
+        private void OnPinchUpdated(object? sender, PinchGestureUpdatedEventArgs e)
         {
             if (e.Status == GestureStatus.Started)
             {
